@@ -10,8 +10,8 @@ const userRoute = require("./routes/user.js");
 const productRoute = require("./routes/product.js");
 const categoryRoute = require("./routes/categories.js");
 const orderRoute = require("./routes/order.js");
-const authJwt = require('./helper/jwt.js')
-const errorHandler = require('./helper/error-handler.js')
+const authJwt = require('./helper/jwt.js');
+const errorHandler = require('./helper/error-handler.js');
 const port = process.env.port || 5000;
 dotenv.config();
 

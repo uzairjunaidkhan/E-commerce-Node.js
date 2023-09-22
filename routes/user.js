@@ -15,7 +15,7 @@ router.post('/login', async (req,res) => {
             userId: user.id,
             isAdmin: user.isAdmin
         },
-        key,          //key
+        key,          //confidential
         {expiresIn: '1d'})
 
         res.status(200).send({user: user.email, token: token})
@@ -41,7 +41,7 @@ router.post('/create', async (req,res) => {
     })
 
     try{
-        let savedUser = await newUser.save()
+        const savedUser = await newUser.save()
         res.status(200).send(savedUser)
     }catch(err){
         res.status(500).send(err)
@@ -78,7 +78,7 @@ router.get('/get/count', async (req,res) =>{
 })
 
 //update
-router.put('/:id', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
     if(req.body.id == req.params.id)
     {
         try{

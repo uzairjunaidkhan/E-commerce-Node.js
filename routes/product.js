@@ -145,7 +145,7 @@ router.get('/list', async (req,res) =>{
 })
 
 router.get('/list/selected', async (req,res) =>{
-    const productlist = await Product.find().select('name image -_id');//selecting the required fields for optimization
+    const productlist = await Product.find().select('name image');//selecting the required fields for optimization
     if(!productlist){
         res.status(500).json({sucess: false})
     }

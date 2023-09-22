@@ -11,7 +11,7 @@ try {
             path:[
                 {url: /\/api\/product(.*)/ , method: ['GET', 'OPTIONS']},//admin will delete/update/post
                 {url: /\/api\/categories(.*)/ , methods: ['GET', 'OPTIONS'] },//admin will delete/update/post
-                {url: /\/api\/orders(.*)/,methods: ['GET', 'OPTIONS', 'POST']},//admin will delete/update/post
+                // {url: /\/api\/orders(.*)/,methods: ['GET', 'OPTIONS', 'POST']},//admin will delete/update/post
                 '/api/user/login',
                 '/api/user/create',
                 // '/api/order/create',
