@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan")
 
-// const authRoute = require("./routes/auth.js");
 const userRoute = require("./routes/user.js");
 const productRoute = require("./routes/product.js");
 const categoryRoute = require("./routes/categories.js");
@@ -24,22 +23,16 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+  
 //middleware
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authJwt());
+app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(errorHandler);
-// app.use((err, req, res, next) => {
-//   if (err.name === "UnauthorizedError") {
-//     return res.status(401).json({ Message: err });
-//   }
-//   console.error(err);
-//   res.status(500).json({ error: 'Internal Server Error' });
-// });
 
-// api routes
-// app.use("/api/auth", authRoute);
+//routes
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
 app.use("/api/category", categoryRoute);
@@ -49,4 +42,3 @@ app.listen(port, () => {
   console.log("server running on", { port });
 });
 
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc4YmQ2ODUyZDkzM2VkNWY3YjNlYmMiLCJpYXQiOjE2ODY3NDA3NDIsImV4cCI6MTY4NjgyNzE0Mn0.1DMkdh5T-W8BVPUNFpSlADQKADY5uHHyJKcJVRjTeiU

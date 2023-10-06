@@ -64,7 +64,7 @@ router.post('/create/new', uploadOptions.single('image'), async (req,res) => {//
         res.status(200).send(savedProduct);
     }
     catch(err){
-        res.status(500).send('the product connot be created')
+        res.status(500).send(err + 'the product connot be created')
     }
     //////////
 })
