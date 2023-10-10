@@ -86,8 +86,8 @@ router.post('/create', async (req,res) =>{
     }))
     orderItemIdsResolved = await orderItemIds;
 
-    const totalPrices = await Promise.all(orderItemIdsResolved.map(async (orderItemIds) =>{
-        const orderItem = await Orderitems.findById(orderItemIds).populate('product', 'price');
+    const totalPrices = await Promise.all(orderItemIdsResolved.map(async (orderItemId) =>{
+        const orderItem = await Orderitems.findById(orderItemId).populate('product', 'price');
         const totalPrice = orderItem.product.price * orderItem.quantity;
         return totalPrice
     }))
